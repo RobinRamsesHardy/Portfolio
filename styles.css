@@ -111,13 +111,13 @@ a.headerButton.notSelected {
 
 a.headerButton.notSelected:hover {
 	color: #FCBF30;
-	background-image: url(/Media/Menus/BetterMenuBiggerWithBG.png);
+	background-image: url(Media/Menus/BetterMenuBiggerWithBG.png);
 	background-repeat: no-repeat;
 }
 
 a.headerButton.Selected {
 	color: #FCBF30;
-	background-image: url(/Media/Menus/BetterMenuBiggerWithBG.png);
+	background-image: url(Media/Menus/BetterMenuBiggerWithBG.png);
 	background-repeat: no-repeat;
 }
 

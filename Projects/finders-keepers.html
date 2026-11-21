@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="/styles.css"/>
+		<title>Robin Hardy</title>
+	</head>
+	<body>
+		<div class="header">
+			<div class="maxPageWidth">
+				<div class="halfWidthContainer">
+					<div>
+						<h1 class="name"><a href="home.html">Robin Hardy</a> <span style="font-size:24px;">AI Programmer</span></h1>
+					</div>
+					<div class="headerButtonArea">
+						<div class="halfWidthContainer">
+							<div class="leftSide dropdown">
+								<a href="/home.html" class="headerButton Selected">Projects</a>
+								<div class="dropdown-content" style="width: 140px">
+									<a href="/Projects/little-nightmares-3.html">Little Nightmares 3<br></a>
+									<div class="dropdownRight">
+										<a href="/Projects/Bewildered/bewildered.html">Bewildered ><br></a>
+										<div class="dropdown-contentRight" style="width: 200px">
+											<a href="/Projects/Bewildered/stup-detailed-explanation.html">STUP Detailed Explanation<br></a>
+											<a href="/Projects/Bewildered/stup-with-code-snippets.html">STUP With Code Snippets<br></a>
+										</div>
+									</div>
+									<a href="/Projects/sugar-blast.html">Sugar Blast<br></a>
+									<a href="/Projects/custom-engine.html">Custom Engine<br></a>
+									<a href="/Projects/finders-keepers.html">Finders Keepers<br></a>
+								</div>
+							</div>
+							<div class="rightSide">
+								<a href="/about-me.html" class="headerButton notSelected">About Me</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="maxPageWidth">
+            <div style="margin-top: 80px;">
+				<iframe width="1264" height="711" src="https://www.youtube-nocookie.com/embed/yJk595NcxQg?loop=1&playlist=yJk595NcxQg&autoplay=1&mute=1" 
+				title="Finders Keepers Walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+				picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				<p style="width: 540px; margin: auto">Since there is no trailer for the game due to the short amount of time we worked on it I have made a video where I go through the entire game.</p>
+			</div>
+            <div style="position: relative;">
+				<h1 class="bigTitle">Finders Keepers</h1>
+				<p>This is a 3rd person platforming game where you control a frog named Wart and a mech to reach the top of the tower.</p>
+				<br>
+				<p>This is the <span class="orangeText">first</span> project in which I worked with <span class="orangeText">other disciplines</span>, 
+					the first time I worked with <span class="orangeText">Unreal Engine</span>, and the first time I <span class="orangeText">released 
+					a game</span>.</p>
+				<p>The concepting had already been done and now the game had to be fully developed and finished.</p>
+				<p>I was a <span class="orangeText">Gameplay programmer</span> and worked on the wall climbing, <span class="orangeText">saving</span>, 
+					and <span class="orangeText">VFX</span>.</p>
+				<br>
+				<p>Link to the game: <a href="https://buas.itch.io/finders-keepers" target="_blank" class="orangeText">
+					https://buas.itch.io/finders-keepers</a></p>
+				<br>
+				<p>Details:</p>
+				<div class="thirdWidthContainer">
+                    <div>
+                    	<p>1st-year project</p>
+                        <p>Team: 9 people</p>
+                        <p>Time: 8 weeks</p>
+                        <p>Engine: <span class="orangeText">Unreal Engine 4</span></p>
+                    </div>
+                    <div>
+                        <p>Team Composition:</p>
+                        <p>PR: 2</p>
+                        <p>DP: 3</p>
+                        <p>VA: 4</p>
+                    </div>
+                </div>
+			</div>
+			<h1 class="mediumTitleWhite">My Contributions</h1>
+			<div class="halfWidthContainer">
+				<div style="width: 660px">
+					<p>As mentioned my main contribution was the <span class="orangeText">wall climbing</span>. I made this feature from scratch as it 
+						was planned but they didn't have time to make a prototype for it during the 2 weeks of concepting. On the right you can see the 
+						result. Wart can climb on spherical surfaces as well as long as he has the stamina left to do so.</p>
+				</div>
+				<div>
+					<img style="width: 340px" src="/Media/Other/Y1/Y1_WallClimbing.gif">
+				</div>
+			</div>
+			<p>Besides this, I made most of the <span class="orangeText">VFX</span> for the game in a basic form that artists could then polish. If I 
+				had to make the finished version, I would ask for feedback from the team and get pointers on how to improve it.</p>
+			<p>Below here you can see gifs of VFX's I made. In the first one, you see the engine flame at first it didn't have the emission which was 
+				added later by the artists. In the 2nd and 3rd gif there are smoke particle effects which took a lot of iterating to get to where they 
+				are now as it was first using yellow dust and went in the wrong directions.</p>
+			<img style="width: 203px" src="/Media/Other/Y1/Y1_DoubleJumpVFX1.gif">
+			<img style="width: 174px" src="/Media/Other/Y1/Y1_DoubleJumpVFX2.gif">
+			<img style="width: 403px" src="/Media/Other/Y1/Y1_LandingVFX.gif">
+			<div class="halfWidthContainer">
+				<div style="width: 680px">
+					<p>One of the more important things that I implemented was the <span class="orangeText">saving system</span>. The team wanted to 
+						have save points in the game so you could save leave and come back. Another reason for save points is so we could divide the 
+						game into levels which were basically sections of the game. This took a while to do but in the end it is functional and in the 
+						game. In the gif I show that I can go to the 2nd checkpoint, close the game, startup the game and click continue, and be at the 
+						2nd checkpoint.</p>
+					<br>
+					<p>Bugfixing and polishing</p>
+					<br>
+					<p>Optimizations:</p>
+					<p>Implement <span class="orangeText">LOD's</span> as the game was getting laggy with all the assets and triangles.</p>
+				</div>
+				<div>
+					<img style="width: 300px" src="/Media/Other/Y1/Y1_Saving.gif">
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footerDetails">
+				<div class="thirdWidthContainer">
+					<div class="footerTextLeft">
+						<b>Write</b>
+						<p>darthrobin260-portfolio@yahoo.com</p>
+					</div>
+					<div style="margin: auto">
+						<a href="https://linkedin.com/in/robin-hardy-26985a223/" target="_blank">
+							<img style="width: 40px" src="/Media/Icons/linkedin.png">
+						</a>
+					</div>
+					<div class="footerTextRight">
+						<b>Github</b>
+						<p>https://github.com/RobinRamsesHardy</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

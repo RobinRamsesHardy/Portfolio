@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="/styles.css"/>
+		<title>Robin Hardy</title>
+	</head>
+	<body>
+		<div class="header">
+			<div class="maxPageWidth">
+				<div class="halfWidthContainer">
+					<div>
+						<h1 class="name"><a href="home.html">Robin Hardy</a> <span style="font-size:24px;">AI Programmer</span></h1>
+					</div>
+					<div class="headerButtonArea">
+						<div class="halfWidthContainer">
+							<div class="leftSide dropdown">
+								<a href="/home.html" class="headerButton Selected">Projects</a>
+								<div class="dropdown-content" style="width: 140px">
+									<a href="/Projects/little-nightmares-3.html">Little Nightmares 3<br></a>
+									<div class="dropdownRight">
+										<a href="/Projects/Bewildered/bewildered.html">Bewildered ><br></a>
+										<div class="dropdown-contentRight" style="width: 200px">
+											<a href="/Projects/Bewildered/stup-detailed-explanation.html">STUP Detailed Explanation<br></a>
+											<a href="/Projects/Bewildered/stup-with-code-snippets.html">STUP With Code Snippets<br></a>
+										</div>
+									</div>
+									<a href="/Projects/sugar-blast.html">Sugar Blast<br></a>
+									<a href="/Projects/custom-engine.html">Custom Engine<br></a>
+									<a href="/Projects/finders-keepers.html">Finders Keepers<br></a>
+								</div>
+							</div>
+							<div class="rightSide">
+								<a href="/about-me.html" class="headerButton notSelected">About Me</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="margin-top: 80px; position: relative;">
+	        <h1 style="padding-top: 20px; font-size: 36px;">In-depth explanation on how STUP works with code snippets</h1>
+		</div>
+		<div class="maxPageWidth">
+			<img class="maxPageWidth" src="/Media/STUP/PreliminaryUML11.png">
+			<img class="maxPageWidth" src="/Media/FlowChart/STUP_Flow_Chart_Part_0.png">
+			<p>On this page, I will explain how STUP works with the help of code snippets. I will do it in the same way as the 
+				<a class="orangeText" href="/Projects/Bewildered/stup-detailed-explanation.html">detailed STUP explanation</a> with examples with a 
+				flowchart that shows the steps and what is happening. When making STUP me and another programmer made a UML for how we wanted to 
+				structure the STUP code.</p>
+			<img class="maxPageWidth" src="/Media/FlowChart/STUP_Flow_Chart_Part_01.png">
+			<div class="halfWidthContainer">
+				<div style="width: 450px">
+					<p>In order for STUP to work we need to get the current worldstate. The worldstate is a set of variables that say what the state of 
+						the world is which will be used as a start for GOAP to make the plans. There will be a better explanation of how this is used in 
+						the GOAP section.</p>
+				</div>
+				<div>
+					<img style="width: 530px" src="/Media/STUP/Making_Worldstate.png">
+				</div>
+			</div>
+			<img class="maxPageWidth" src="/Media/FlowChart/STUP_Flow_Chart_Part_02-03.png">
+			<img class="maxPageWidth" style="padding-top: 15px" src="/Media/STUP/Create_Goal.png">
+			<p>With STUP we make 1 goal for every action we can do on every object in the game we can do actions on. Every goal has an action which has 
+				preconditions which need to be fulfilled which applies certain effects on the worldstate. This is what is used to make a plan for the 
+				goal and will be explained in more detail in the GOAP section. The Score and Multipier will end up being used to weigh the goals 
+				increase/decreasing the chance of them being chosen and is important in step 1, 3, and 4 of Utility. Rank will be used to eliminate 
+				goals in the 2nd step of Utility.</p>
+			<img class="maxPageWidth" src="/Media/FlowChart/STUP_Flow_Chart_Part_04.png">
+			<div class="halfWidthContainer">
+				<div style="width: 480px">
+					<p>This is pretty simple we just call OnUpdate() from blueprints to start the STUP algorithm. The reason for the Plan being returned 
+						the way it is will be explained in the "Return plan to blueprint section".</p>
+				</div>
+				<div>
+					<img style="width: 500px" src="/Media/STUP/On_Update_Call.png">
+				</div>
+			</div>
+			<img class="maxPageWidth" src="/Media/FlowChart/STUP_Flow_Chart_Part_05.png">
+			<img class="maxPageWidth" style="padding-top: 15px" src="/Media/STUP/Utility_Step_1.png">
+			<p>Now we start with the first step of Utility. What we want to do is eliminate any goal that is impossible or undesired. This is down by 
+				removing every goal with a Score or Multiplier of 0 or lower as we don't want to make a plan for those.</p>
+			<img class="maxPageWidth" src="/Media/FlowChart/STUP_Flow_Chart_Part_06.png">
+			<div class="halfWidthContainer">
+				<div style="width: 400px">
+					<p>To do Utility step 2 we first check which goal has the highest rank and then we eliminate every goal with a lower rank. The 
+						reason we do this is that certain actions will have a higher priority in general than others. Let's say you are in a battle but 
+						somewhere in the environment is a TV. You would never go watch TV while there is an enemy trying to kill you so watching TV has 
+						a lower rank and will thus be eliminated by the presence of the enemy.</p>
+				</div>
+				<div>
+					<img style="width: 580px" src="/Media/STUP/Utility_Step_2.png">
+				</div>
+			</div>
+			<img class="maxPageWidth" src="/Media/FlowChart/STUP_Flow_Chart_Part_07.png">
+			<div class="halfWidthContainer">
+				<div style="width: 320px">
+					<p>Now that we have eliminated the goals that we cannot do or do not want to do we can make plans for those we have left. In this 
+						function we use the A* algorithm to find a path from our current worldstate to the goal worldstate if possible. Each time we 
+						finish the loop in the image below we change the current worldstate and check if it meets the preconditions for the goal. If it 
+						does then we have made a plan and we can add the action to reach the goal and the cost. If we don't find the goal however we 
+						continue checking which actions we can do on the current worldstate before switching it.</p>
+				</div>
+				<div>
+					<img style="width: 660px" src="/Media/STUP/GOAP_Are_We_At_The_Goal.png">
+				</div>
+			</div>
+			<div class="halfWidthContainer">
+				<div>
+					<img style="width: 550px" src="/Media/STUP/GOAP_See_Which_Action_Can_Be_Done.png">
+				</div>
+				<div style="width: 430px">
+					<p style="padding-top: 10px; padding-left: 20px;">In the loop to the left, we check which actions can be done on the current 
+						worldstate. In this function we have 2 vectors: OpenList and ClosedList. The ClosedList contains all the world states we have 
+						already visited so we don't end up with a lot of duplicate worldstates. The OpenList has all the worldstates we have yet to 
+						finish and will be expanded as we reach new nodes. This list is ordered based on Heurestic which is a value that tells you how 
+						close you are to the goal with the worldstates with the lowest Heurestic being at the beginning of the list. Before this 
+						algorithm we remove the first worldstate from the OpenList and make it our Current worldstate. After that we go over each action 
+						and see if the preconditions are fulfilled. If they are fulfilled we check if this worldstate is on the ClosedList and if it is 
+						we exit. Next we check if it is member of the OpenList and if it isn't we add it, if it is on there we check if the cost of the 
+						current plan is cheaper and if it is we update the worldsate in the OpenList and make sure it is still in the right location.</p>
+				</div>
+			</div>
+			<img class="maxPageWidth" src="/Media/FlowChart/STUP_Flow_Chart_Part_08.png">
+			<div class="halfWidthContainer">
+				<div style="width: 370px">
+					<p>We now have a cost for every goal which we are going to use in the next step of Utility. In this step we first get the 
+						highestUtilityPerCost with Utility being Score * Multiplier. Once we have this we check every goal to see if the UtilityPerCost 
+						of the goal is lower than the highestUtilityPerCost * CutOffRatio(number between 0-1). If it is we will put it on a list of 
+						actions to potentially remove. Afterward, we check every goal and add up the UtilityPerCost off all the to be removed goals 
+						and if that total is higher than the highestUtilityPerCost * CutOffRatio the goals will not be removed. The reason we do this 
+						is that we want to eliminate the goals that normally wouldn't be taken even though they are an option but if they together are 
+						significant we shouldn't remove them.</p>
+					<br>
+					<p>An example is lets say you are a sniper and you shoot at a battalion of troops. The leader will be a very important target 
+						and thus have a high UtilityPerCost so lets say it is 10. Now there are also 20 soldiers which each has a UtilityPerCost of 
+						0.5. With a CutOffRatio of 0.2 all the soldiers would not be up for consideration anymore leaving the leader as the 
+						guaranteed target every time. This is why the last part is there because now we can check if 10 * 0.2 > 0.5 * 20 and because 
+						the combined total is still relevant they will still be considered and not removed.</p>
+				</div>
+				<div>
+					<img style="width: 610px" src="/Media/STUP/Utility_Step_3.png">
+				</div>
+			</div>
+			<img class="maxPageWidth" src="/Media/FlowChart/STUP_Flow_Chart_Part_09.png">
+			<div class="halfWidthContainer">
+				<div style="width: 460px">
+					<p>Now that we have a plan for every goal and only significant goals left we just need to randomly pick one. Now if we just randomly 
+						pick one the whole scoring at the start would have been for nothing. To avoid that we are going to use the UtilityPerCost as a 
+						weight to give a higher chance for some goals to be picked. First we need the totalUtilityPerCost of all the goals. Next we get 
+						a random number between 0 and totalUtilityPerCost. Now that we have a random number we will check if the UtilityPerCost of the 
+						first goal is higher than the random number. If it isn't we add the first goals UtilityPerCost to the 
+						currentCombinedUtilityPerCost of all the goals we have already checked. Now we do the same for the next goal but we add the 
+						currentCombinedUtilityPerCost to the goals UtilityPerCost and check if this is higher. Repeat this until it is higher and now we 
+						have our goal.</p>
+				</div>
+				<div>
+					<img style="width: 520px" src="/Media/STUP/Utility_Step_4.png">
+				</div>
+			</div>
+			<img class="maxPageWidth" src="/Media/FlowChart/STUP_Flow_Chart_Part_10-11.png">
+			<div class="halfWidthContainer">
+				<div style="width: 480px">
+					<p>Now we return the plan to the blueprint and execute it. The reason why we return a string and the affected actor and not the enum 
+						and not the affected actor is that we couldn't figure out how to point to a single part of an enum. We made STUP easy to be used 
+						by designers so the enum we use is stored as a uasset and not in C++. Because of this, I made some conversions for being able to 
+						convert the string back to the enum so it can be used by the Behavior Tree.</p>
+				</div>
+				<div>
+					<img style="width: 500px" src="/Media/STUP/On_Update_Call.png">
+				</div>
+			</div>
+			<div class="halfWidthContainer" style="padding-top: 50px">
+				<div style="width: 380px">
+					<p>We have enums that will be done after each other and to execute the actions we use a behavior tree. This tree will only be called 
+						when the next action is called which happens at the end of all the tasks.</p>
+				</div>
+				<div>
+					<img style="width: 600px" src="/Media/STUP/STUP_Behavior_Tree.png">
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footerDetails">
+				<div class="thirdWidthContainer">
+					<div class="footerTextLeft">
+						<b>Write</b>
+						<p>darthrobin260-portfolio@yahoo.com</p>
+					</div>
+					<div style="margin: auto">
+						<a href="https://linkedin.com/in/robin-hardy-26985a223/" target="_blank">
+							<img style="width: 40px" src="/Media/Icons/linkedin.png">
+						</a>
+					</div>
+					<div class="footerTextRight">
+						<b>Github</b>
+						<p>https://github.com/RobinRamsesHardy</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

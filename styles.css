@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter");
+@import url("https://fonts.googleapis.com/css?family=Open Sans");
+
+body {
+	background-color: #3C3C3C;
+	margin: 0px;
+}
+
+h1 {
+	color: #FCBF30;
+	font-family: "Inter", sans-serif;
+	margin-top: 10px;
+	margin-bottom: 10px;
+    font-weight: normal;
+	text-align: center;
+}
+
+h1 a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+p {
+	color: #FFFFFF;
+	font-family: "Open Sans", sans-serif;
+	font-size: 14px;
+	margin: 0px;
+}
+
+iframe {
+	aspect-ratio: 16/9;
+	height: auto;
+	width: 100%;
+}
+
+.name {
+	text-align: left;
+	font-size: 48px;
+}
+
+.bigTitle {
+	font-size: 60px;
+}
+
+.mediumTitle {
+	font-size: 40px;
+}
+
+.mediumTitleWhite {
+	font-size: 26px;
+	color: #FFFFFF;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.smallTitle {
+	font-size: 20px;
+	margin-top: 0px;
+}
+
+.aboutMeBigText {
+    font-weight: bold;
+	font-size: 60px;
+	color: #FFFFFF;
+}
+
+.aboutMeMediumText {
+	text-align: left;
+	font-size: 28px;
+	color: #FFFFFF;
+}
+
+.orangeText {
+	color: #FCBF30;
+	text-decoration:none;
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 80px;
+	background: #9DA2AE;
+	border-bottom: 2px solid #FCBF30;
+	z-index: 990;
+}
+
+.headerButtonArea {
+	width: 300px;
+	height: 40px;
+	margin: auto;
+	margin-right: 50px;
+	margin-bottom: -4px;
+}
+
+a.headerButton {
+	display: block;
+	width: 126px;
+	height: 40px;
+	margin: auto;
+	padding-top: 10px;
+	text-align: center;
+	text-decoration:none;
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+}
+
+a.headerButton.notSelected {
+	color: #986B00;
+}
+
+a.headerButton.notSelected:hover {
+	color: #FCBF30;
+	background-image: url(/Media/Menus/BetterMenuBiggerWithBG.png);
+	background-repeat: no-repeat;
+}
+
+a.headerButton.Selected {
+	color: #FCBF30;
+	background-image: url(/Media/Menus/BetterMenuBiggerWithBG.png);
+	background-repeat: no-repeat;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+	margin-top: -10px;
+	display: none;
+	position: absolute;
+	background-color: #3C3C3C;
+ 	border: 2px solid #FCBF30;
+ 	border-radius: 10px;
+}
+
+.dropdown-content.right {
+	right: 100%;
+	top: 0%;
+}
+
+.dropdown-content a { 	
+	font-family: "Inter", sans-serif;
+	font-size: 14px;
+	line-height: 40px;
+	color: #FCBF30;
+	text-decoration:none;
+	padding: 0px 10px;
+}
+
+.dropdown-content a:hover { 	
+	color: #986B00;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdownRight {
+  position: relative;
+}
+
+.dropdown-contentRight {
+	margin-top: -10px;
+	display: none;
+	padding: 0px 10px;
+	position: absolute;
+	background-color: #3C3C3C;
+ 	border: 2px solid #FCBF30;
+ 	border-radius: 10px;
+	left: 100%;
+	top: 0%;
+}
+
+.dropdownRight:hover .dropdown-contentRight {
+	display: block;
+}
+
+.footer {
+	margin-top: 20px;
+	width: 100%;
+	height: 80px;
+	background: #9DA2AE;
+	border-top: 2px solid #FCBF30;
+	z-index: 990;
+}
+
+.footerDetails {
+	padding-top: 20px;
+	width: 700px;
+	margin: auto;
+}
+
+.footerTextLeft {
+	width: 250px;
+	margin-left: 0px;
+	margin-right: auto;
+}
+
+.footerTextLeft b {
+	color: #000000;
+}
+
+.footerTextLeft p {
+	color: #000000;
+}
+
+.footerTextRight {
+	width: 250px;
+	margin-left: auto;
+	margin-right: 0px;
+}
+
+.footerTextRight b {
+	color: #000000;
+}
+
+.footerTextRight p {
+	color: #000000;
+}
+
+.maxPageWidth {
+	margin: auto;
+	width: 1000px;
+}
+
+.halfWidthContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.thirdWidthContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.homeProject {
+	margin-bottom: 20px;
+}
+
+.homeProjectIcon {
+	display: block;
+	position: relative;
+	margin: auto;
+	height: 300px;
+}
+
+.homeProjectDescription {
+	width: 330px;
+	margin: auto;
+}
+
+.homeProjectDescriptionSub {
+	height: 63px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+a.homepageButton {
+	background-color: #000000;
+ 	color: #FCBF30;
+	font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+ 	font-size: 14px;
+	text-align: center;
+ 	padding: 2px 0px;
+ 	border: 2px solid #000000;
+ 	border-radius: 29px;
+ 	cursor: pointer;
+	margin: auto;
+	margin-top: 20px;
+	display: block;
+	width: 130px;
+	text-decoration:none;
+}
+
+a.homepageButton:hover {
+	background-color: #3c3c3c;
+}
+
+.STUPDetail {
+	width: 300px;
+	background-color: #333333;
+ 	border: 1px solid #FCBF30;
+	margin: auto;
+	margin-right: 50px
+}
+
+.STUPDetailContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin-bottom: 5px;
+}
+
+.STUPDetailExplanation {
+	width: 600px;
+	margin-right: auto;
+	margin-left: 30px;
+}
+
+.leftSide {
+	margin: auto; 
+	margin-left: 0px;
+}
+
+.rightSide {
+	margin: auto; 
+	margin-right: 0px;
+}
+
+.aboutMeSkillImages { 
+	display: grid;
+	place-items: center;
+	height: 80px;
+}

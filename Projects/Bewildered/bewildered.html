@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../styles.css"/>
+		<title>Robin Hardy</title>
+	</head>
+	<body>
+		<div class="header">
+			<div class="maxPageWidth">
+				<div class="halfWidthContainer">
+					<div>
+						<h1 class="name"><a href="home.html">Robin Hardy</a> <span style="font-size:24px;">AI Programmer</span></h1>
+					</div>
+					<div class="headerButtonArea">
+						<div class="halfWidthContainer">
+							<div class="leftSide dropdown">
+								<a href="/home.html" class="headerButton Selected">Projects</a>
+								<div class="dropdown-content" style="width: 140px">
+									<a href="/Projects/little-nightmares-3.html">Little Nightmares 3<br></a>
+									<div class="dropdownRight">
+										<a href="/Projects/Bewildered/bewildered.html">Bewildered ><br></a>
+										<div class="dropdown-contentRight" style="width: 200px">
+											<a href="/Projects/Bewildered/stup-detailed-explanation.html">STUP Detailed Explanation<br></a>
+											<a href="/Projects/Bewildered/stup-with-code-snippets.html">STUP With Code Snippets<br></a>
+										</div>
+									</div>
+									<a href="/Projects/sugar-blast.html">Sugar Blast<br></a>
+									<a href="/Projects/custom-engine.html">Custom Engine<br></a>
+									<a href="/Projects/finders-keepers.html">Finders Keepers<br></a>
+								</div>
+							</div>
+							<div class="rightSide">
+								<a href="/about-me.html" class="headerButton notSelected">About Me</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="maxPageWidth">
+            <div style="margin-top: 80px;">
+				<iframe width="1286" height="723" src="https://www.youtube-nocookie.com/embed/D_ekOysX0PI?loop=1&playlist=D_ekOysX0PI&autoplay=1&mute=1" 
+				title="Bewildered teaser trailer -- Unreal engine 4 -- Breda University of Applied Sciences (Buas)" frameborder="0" allow="accelerometer; 
+				autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+				allowfullscreen></iframe>
+			</div>
+            <div style="position: relative;">
+				<h1 class="bigTitle">Bewildered</h1>
+				<p>Bewildered is a 3rd person combat-adventure game where you play as an adventurer who with the help of a monster has to save the island 
+					it inhabits.</p>
+				<br>
+				<p>Link to the game: <a href="https://store.steampowered.com/app/1768540/Bewildered/" target="_blank" class="orangeText">
+					https://store.steampowered.com/app/1768540/Bewildered/</a></p>
+				<br>
+				<p>Details:</p>
+				<div class="thirdWidthContainer">
+                    <div>
+                    	<p>3rd-year project</p>
+                        <p>Team: 21 people</p>
+                        <p>Time: 16 weeks</p>
+                        <p>Engine: <span class="orangeText">Unreal Engine 4</span></p>
+                    </div>
+                    <div>
+                        <p>Team Composition:</p>
+                        <p>PR: 5</p>
+                        <p>DP: 6</p>
+                        <p>VA: 10</p>
+                    </div>
+                </div>
+				<br>
+				<p>My biggest contribution to this project is the work I have done on the AI of the monster. At first, we had to figure out which 
+					<span class="orangeText">AI architecture</span> we were going to use which required research. The ones we were deciding between at 
+					the start were: <span class="orangeText">GOAP</span>(Goal Oriented Action Planning), <span class="orangeText">Utility theory</span>, 
+					and <span class="orangeText">HTN</span>(Hierarchical Task Networks). While researching we discovered <span class="orangeText">STUP	
+					</span>(Short Term Utility Planning) which appears to work the best for the AI we want. STUP is a combination of GOAP and Utility 
+					theory which allows the AI to think slightly ahead and evaluate multiple options until it decides what it will do.</p>
+				<div style="width: 620px; margin: auto;">
+					<iframe width="1286" height="723" src="https://www.youtube-nocookie.com/embed/gJo6GBCGERE?loop=1&playlist=gJo6GBCGERE&autoplay=1&mute=1" 
+					title="Choosing an AI Approach: Utility-based, GOAP, etc. (Game Dev VLOG #11)" frameborder="0" allow="accelerometer; autoplay; 
+					clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+					allowfullscreen></iframe>
+				</div>
+				<p>This video is the inspiration for STUP that we used. We made some slight changes those being the order in which we do the algorithm. 
+					Unlike in the video where they start by creating plans for each goal we first eliminate those that cannot be done/aren't desired at 
+					the given time. Now we make plans for all of the remaining goals which saves time because we already eliminated some goals that were
+					 never going to happen. I will go into more detail about how this works below.</p>
+				<br>
+				<h1 class="mediumTitle" style="text-align: left;">Explanation on how STUP works</h1>
+				<img class="maxPageWidth" src="/Media/FlowChart/STUP_Flow_Chart_Part_0.png">
+				<p>To explain STUP I will be using the <span class="orangeText">flowchart</span> that can be seen above here. If the image is hard to 
+					read you can click it to enlarge the image. To make it easy to understand I will show which step we are at with an example on the 
+					right side. There is a more <a class="orangeText" href="/Projects/Bewildered/stup-detailed-explanation.html">detailed explanation
+					</a> and an <a class="orangeText" href="/Projects/Bewildered/stup-with-code-snippets.html">in-depth</a> one that has code snippets 
+					for those interested.</p>
+				<br>
+				<p>STUP works by making a <span class="orangeText">goal</span> for every <span class="orangeText">action</span> it can do on every 
+					object in the world. All these goals are scored based on how useful they are at the moment and if they are currently possible. STUP 
+					uses these goals which each have a state which you need to reach to do the action used to complete the goal. Before we start STUP we 
+					need to know in what state we are, what action we can do and conditions those actions have for activation and their effects.</p>
+				<br>
+				<p>Now we have everything to start STUP and we get to <span class="orangeText">Utility</span> Step 1 where we remove every goal we cannot 
+					do or are very undesirable given the current situation. Each goal has a given rank based on the action used to achieve it the higher 
+					the rank the more important it is so in Utility step 2 we remove every goal aside from the goals with the highest rank. Now we have 
+					reached the <span class="orangeText">GOAP</span> step where we make a plan for every goal using the given actions that can be done. 
+					With this, we can eliminate the goals that couldn't be reached and get the cost for completing the plan.</p>
+				<br>
+				<p>Next, we do Utility step 3 where we put all the goals that are very irrelevant on a list to be removed based on a certain threshold. 
+					If the relevance of these goals combined exceeds the threshold they will not be removed. This is explained best in the 
+					<a class="orangeText" href="/Projects/Bewildered/stup-with-code-snippets.html">in-depth explanation</a>. Lastly, we reach Utility 
+					step 4 where we pick a random goal but the importance of the goal has an impact on how likely it is to be chosen. Now we have a plan 
+					we can do to reach the goal and we can start executing it.</p>
+				<br>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footerDetails">
+				<div class="thirdWidthContainer">
+					<div class="footerTextLeft">
+						<b>Write</b>
+						<p>darthrobin260-portfolio@yahoo.com</p>
+					</div>
+					<div style="margin: auto">
+						<a href="https://linkedin.com/in/robin-hardy-26985a223/" target="_blank">
+							<img style="width: 40px" src="/Media/Icons/linkedin.png">
+						</a>
+					</div>
+					<div class="footerTextRight">
+						<b>Github</b>
+						<p>https://github.com/RobinRamsesHardy</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

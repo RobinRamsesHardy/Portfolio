@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="/styles.css"/>
+		<title>Robin Hardy</title>
+	</head>
+	<body>
+		<div class="header">
+			<div class="maxPageWidth">
+                <div class="halfWidthContainer">
+					<div>
+						<h1 class="name"><a href="home.html">Robin Hardy</a> <span style="font-size:24px;">AI Programmer</span></h1>
+					</div>
+					<div class="headerButtonArea">
+						<div class="halfWidthContainer">
+							<div class="leftSide dropdown">
+								<a href="/home.html" class="headerButton Selected">Projects</a>
+								<div class="dropdown-content" style="width: 140px">
+									<a href="/Projects/little-nightmares-3.html">Little Nightmares 3<br></a>
+									<div class="dropdownRight">
+										<a href="/Projects/Bewildered/bewildered.html">Bewildered ><br></a>
+										<div class="dropdown-contentRight" style="width: 200px">
+											<a href="/Projects/Bewildered/stup-detailed-explanation.html">STUP Detailed Explanation<br></a>
+											<a href="/Projects/Bewildered/stup-with-code-snippets.html">STUP With Code Snippets<br></a>
+										</div>
+									</div>
+									<a href="/Projects/sugar-blast.html">Sugar Blast<br></a>
+									<a href="/Projects/custom-engine.html">Custom Engine<br></a>
+									<a href="/Projects/finders-keepers.html">Finders Keepers<br></a>
+								</div>
+							</div>
+							<div class="rightSide">
+								<a href="/about-me.html" class="headerButton notSelected">About Me</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="maxPageWidth">
+            <div style="margin-top: 80px;">
+				<iframe width="1286" height="723" src="https://www.youtube-nocookie.com/embed/XFHOsobwFrA?loop=1&playlist=XFHOsobwFrA&autoplay=1&mute=1" 
+                title="Little Nightmares III – Announcement Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+                gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</div>
+            <div style="position: relative;">
+                <h1 class="bigTitle">Little Nightmares 3</h1>
+                <p>I did my internship in the 4th year at Engine Software porting Little Nightmares 3.</p>
+                <p>I was an <span class="orangeText">Engine programmer</span> and mainly worked on porting the game in development to 
+                    <span class="orangeText">Switch</span>, <span class="orangeText">PS4</span>, and <span class="orangeText">Xbox One</span>. 
+                    The game has multiplayer functionality which I had to get working for all the mentioned platforms.</p>
+                <p>Details:</p>
+                <div class="thirdWidthContainer">
+                    <div>
+                        <p>4th-year internship project</p>
+                        <p>Team: 2 people</p>
+                        <p>Time: 40 weeks</p>
+                        <p>Engine: <span class="orangeText">Unreal Engine 4</span></p>
+                    </div>
+                    <div>
+                        <p>Team Composition:</p>
+                        <p>PR: 2</p>
+                    </div>
+                </div>
+                <h1 class="mediumTitleWhite">My Contributions</h1>
+                <p>The biggest contribution is optimizing the game to run smoothly on the <span class="orangeText">Switch</span>, 
+                    <span class="orangeText">PS4</span>, and <span class="orangeText">Xbox One</span>. The second biggest contribution is getting 
+                    the <span class="orangeText">multiplayer</span> to work for all the mentioned platforms. What I did for this is as well is get 
+                    <span class="orangeText">crossplatform</span> play to work for the Xbox One with the PC and Xbox Series X/S along with the PS4 
+                    with the PS5.</p>
+                <br>
+                <p>Some other things I learned and used are:</p>
+                <p>How to use the <span class="orangeText">profiler</span> in Unreal Engine,</p>
+                <p>Optimize the <span class="orangeText">navmesh runtime generation</span>,</p>
+                <p>Use <span class="orangeText">graphics debuggers</span> mainly those for Switch and Xbox One.</p>
+                <h1 class="mediumTitleWhite">Navmesh</h1>
+                <p>The game was using a dynamic navmesh which runs fine on most PC's the Switch has a lot of issues updating the navmesh. To fix this 
+                    I had to optimize it to run properly. The first thing that had an impact without changing the runtime generation was the region 
+                    partitioning. Region partitiong is how the engine will look at the area it is regenerating and how it will build the navmesh inside 
+                    the given area(a tile). The types of partitioning can be seen in the image below and for the best speed in our project I had to set 
+                    it to Chunky Monotone but this was not enough.</p>
+                <a href="https://forums.unrealengine.com/t/navmesh-gap-simplemoveto-updates/287801/8" target="_blank">
+                    <img class="homeProjectIcon" style="margin-right: 0px;" src="/Media/Other/Internship/Partitioning_Explanations.png">
+                </a>
+                <p>Afterwards I tried reducing the amount of tiles the navmesh updates. The setting that helped quite a bit is "Do Fully Async Navdata 
+                    Gathering" as for Unreal 4.27 it means it will now only update 1 tile at a time instead of however many the hardware would allow. 
+                    Even with this it was too heavy beacuse a single tile update would cause the game to visibly lag so we had to change it to Dynamic 
+                    Modifiers Only. This would require project wide changes which were than relayed to the rest of the team along with those making the 
+                    original game.</p>
+                <br>
+            </div>
+		</div>
+		<div class="footer">
+			<div class="footerDetails">
+				<div class="thirdWidthContainer">
+					<div class="footerTextLeft">
+						<b>Write</b>
+						<p>darthrobin260-portfolio@yahoo.com</p>
+					</div>
+					<div style="margin: auto">
+						<a href="https://linkedin.com/in/robin-hardy-26985a223/" target="_blank">
+							<img style="width: 40px" src="/Media/Icons/linkedin.png">
+						</a>
+					</div>
+					<div class="footerTextRight">
+						<b>Github</b>
+						<p>https://github.com/RobinRamsesHardy</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
